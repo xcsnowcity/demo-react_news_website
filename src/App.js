@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { Component } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Layout } from "antd";
+import AppHeader from "./components/Header";
+
+import LogLayout from "./components/loglayout";
+const { Header, Footer, Content } = Layout;
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <Layout style={{ minHeight: "100vh" }}>
+            <Header className="header">
+              <Routes>
+                <Route index element={<AppHeader />} />
+                <Route path="/:id" element={<AppHeader />} />
+                <Route path="/detail/:id" element={<AppHeader />} />
+              </Routes>
+            </Header>
+            <Content className="content">
+              <LogLayout />  
+            </Content>
+            <Footer className="footer">@copyright NPR 2022</Footer>
+          </Layout>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;

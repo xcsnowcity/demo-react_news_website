@@ -1,0 +1,9 @@
+.header-layout {
+    display: flex;
+}
+
+.header-layout .logo {
+    width: 100px;
+    margin-right: 50px;
+}
+
